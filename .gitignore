@@ -1,0 +1,85 @@
+## -----------------------------------------------------------------------------
+## .NET Core / C# / .NET MAUI 10
+## -----------------------------------------------------------------------------
+
+# Diretórios de compilação
+[Bb]in/
+[Oo]bj/
+
+# Arquivos de log e testes
+*.log
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.trx
+*.TestLogger.csv
+
+# Diretório de cache e opções do Visual Studio
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# JetBrains Rider / ReSharper
+.idea/
+*.sln.iml
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# Arquivos de usuário do MonoDevelop / Xamarin Studio
+*.userprefs
+
+## -----------------------------------------------------------------------------
+## Plataformas Específicas (MAUI)
+## -----------------------------------------------------------------------------
+
+# macOS / iOS / MacCatalyst
+.DS_Store
+*.ipa
+*.dSYM/
+*.dSYM.zip
+*.developerprofile
+*.mobileprovision
+
+# Android
+*.apk
+*.aab
+*.dex
+*.class
+*.keystore
+*.jks
+# Nota: Se você gerar chaves de assinatura (keystore/jks) para o Android, 
+# é fundamental não "comitá-las" no repositório público por segurança.
+
+# Windows (MSIX)
+AppPackages/
+BundleArtifacts/
+*_TemporaryKey.pfx
+
+## -----------------------------------------------------------------------------
+## Pacotes NuGet
+## -----------------------------------------------------------------------------
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+
+## -----------------------------------------------------------------------------
+## Outros Utilitários
+## -----------------------------------------------------------------------------
+# Variáveis de ambiente locais (se você usar para chaves de API)
+.env
+.env.local
+.env.development
+
+# Arquivos de crash do sistema operacional
+*.crash
