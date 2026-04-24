@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Shara_s.Jogo"
+             Title="Jogo">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="250" />
+        </Grid.ColumnDefinitions>
+
+
+        <VerticalStackLayout Grid.Row="0" Grid.ColumnSpan="2" HorizontalOptions="Center" Margin="0,0,0,20">
+            <Label Text="⭐ Caça-Palavras ⭐" 
+               FontSize="36" 
+               FontAttributes="Bold" 
+               TextColor="#0284C7" 
+               HorizontalOptions="Center" />
+            <Label Text="Encontre as palavras escondidas no caça palavras!" 
+               FontSize="16" 
+               TextColor="#0369A1" 
+               HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+        <Border Grid.Row="1" Grid.Column="0" 
+            BackgroundColor="White" 
+            Padding="10" 
+            Stroke="#BAE6FD" 
+            StrokeThickness="2">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="15" />
+            </Border.StrokeShape>
+            <ScrollView>
+
+                <Grid x:Name="LetterGrid" 
+                  RowSpacing="2" 
+                  ColumnSpacing="2" 
+                  Padding="4" 
+                  HorizontalOptions="Center" 
+                  VerticalOptions="Center" />
+            </ScrollView>
+        </Border>
+
+        <VerticalStackLayout Grid.Row="1" Grid.Column="1" Margin="20,0,0,0">
+            <Border BackgroundColor="White" 
+                Padding="15" 
+                Stroke="#BAE6FD" 
+                StrokeThickness="2">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="15" />
+                </Border.StrokeShape>
+                <VerticalStackLayout>
+                    <Label Text="Palavras:" 
+                       FontSize="20" 
+                       FontAttributes="Bold" 
+                       TextColor="#0369A1" 
+                       Margin="0,0,0,10" />
+
+                    <CollectionView x:Name="WordsListContainer"
+                                HeightRequest="300"
+                                SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Padding="10" 
+                                    Margin="0,2" 
+                                    BackgroundColor="#F8FAFC" 
+                                    Stroke="#E2E8F0">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="8" />
+                                    </Border.StrokeShape>
+                                    <Label Text="{Binding .}" 
+                                       TextColor="#1E293B" 
+                                       FontSize="18" 
+                                       FontAttributes="Bold" />
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Novo Jogo" 
+                Margin="0,20,0,0" 
+                Padding="15" 
+                BackgroundColor="#0EA5E9" 
+                TextColor="White" 
+                FontAttributes="Bold" 
+                FontSize="18" 
+                CornerRadius="12"
+                Clicked="OnNewGameClick" />
+        </VerticalStackLayout>
+
+
+        <Border x:Name="WinOverlay" 
+            Grid.RowSpan="2" 
+            Grid.ColumnSpan="2" 
+            BackgroundColor="#CC000000" 
+            IsVisible="False"
+            ZIndex="10">
+            <Border BackgroundColor="White" 
+                HorizontalOptions="Center" 
+                VerticalOptions="Center" 
+                Padding="40" 
+                Stroke="#FACC15" 
+                StrokeThickness="4">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="25" />
+                </Border.StrokeShape>
+                <VerticalStackLayout HorizontalOptions="Center" Spacing="15">
+                    <Label Text="🏆" FontSize="80" HorizontalOptions="Center" />
+                    <Label Text="PARABÉNS!" 
+                       FontSize="40" 
+                       FontAttributes="Bold" 
+                       TextColor="#EAB308" 
+                       HorizontalOptions="Center" />
+                    <Label Text="Você encontrou todas as palavras!" 
+                       FontSize="18" 
+                       TextColor="#475569"
+                       HorizontalOptions="Center" />
+                    <Button Text="Jogar Novamente" 
+                        Padding="30,15" 
+                        Clicked="OnNewGameClick" 
+                        FontSize="20" 
+                        FontAttributes="Bold" 
+                        BackgroundColor="#22C55E" 
+                        TextColor="White" 
+                        CornerRadius="15" />
+                </VerticalStackLayout>
+            </Border>
+        </Border>
+    </Grid>
+</ContentPage>
